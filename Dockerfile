@@ -1,11 +1,11 @@
 FROM centos:latest
 
-RUN yum install -y openssh-server sudo
+RUN yum install openssh-server sudo -y
 
 RUN useradd ashish && \
     echo 'ashish:password' | chpasswd 
 
-RUN echo 'ashish ALL=(ALL) NOPASSWD:  ALL' >> /etc/sudoers
+RUN echo 'ashish ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 RUN mkdir -p /home/ashish/.ssh && \
     chmod 700 /home/ashish/.ssh && \
